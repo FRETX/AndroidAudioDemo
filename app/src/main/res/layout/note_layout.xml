@@ -1,14 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-                android:background="@color/accent"
-              >
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/icons"
+                android:orientation="vertical"
+    >
 
-    <TextView
-        android:text="Note Layout"
+    <Space
+        android:id="@+id/noteSpacer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textNote"
-        android:layout_centerVertical="true"/>
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        />
+
+    <rocks.fretx.audioprocessingdemo.NoteView
+        android:id="@+id/noteView"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_below="@id/noteSpacer"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@color/icons"
+            android:background="@color/primary_text"
+            android:id="@+id/textNote"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:textSize="80dp"/>
+
+    </rocks.fretx.audioprocessingdemo.NoteView>
+
+    <Button
+        android:text="RESET"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:id="@+id/buttonResetNote"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:textColor="@color/icons"
+        android:background="@color/primary"
+        android:layout_below="@id/noteView"
+        android:layout_centerHorizontal="true"
+        />
+
+
+
 </RelativeLayout>

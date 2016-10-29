@@ -163,7 +163,7 @@ public class TunerView extends View {
 		    if(angleOfIndicator < -maxAngle) angleOfIndicator = -maxAngle;
 		    if(angleOfIndicator > maxAngle) angleOfIndicator = maxAngle;
 
-		    Log.d("angle", Double.toString(angleOfIndicator));
+//		    Log.d("angle", Double.toString(angleOfIndicator));
 
 		    angleOfIndicator = Math.toRadians(angleOfIndicator);
 
