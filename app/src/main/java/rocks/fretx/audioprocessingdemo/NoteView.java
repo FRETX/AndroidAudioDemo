@@ -18,7 +18,7 @@ import rocks.fretx.audioprocessing.MusicUtils;
  * Created by Kickdrum on 29-Oct-16.
  */
 
-public class NoteView extends LinearLayout {
+public class NoteView extends RelativeLayout {
 	private MainActivity mActivity;
 	private RelativeLayout rootView;
 	private int width,height;
