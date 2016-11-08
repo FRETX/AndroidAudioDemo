@@ -20,9 +20,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Chronometer;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 import rocks.fretx.audioprocessing.AudioProcessing;
+import rocks.fretx.audioprocessing.Chord;
 
 public class MainActivity extends AppCompatActivity
 		implements NavigationView.OnNavigationItemSelectedListener {
@@ -59,7 +63,24 @@ public class MainActivity extends AppCompatActivity
 		Log.d("onResume", "permissionsGranted: " + permissionsGranted);
 		if (permissionsGranted) {
 			if (audio == null) audio = new AudioProcessing();
+
+			//Set target chords
+			ArrayList<Chord> targetChords = new ArrayList<Chord>(0);
+			String[] majorRoots = new String[]{"A", "C", "D", "E", "F", "G"};
+			for (int i = 0; i < majorRoots.length; i++) {
+				targetChords.add(new Chord(majorRoots[i], "maj"));
+			}
+			String[] minorRoots = new String[]{"A", "B", "D", "E"};
+			for (int i = 0; i < minorRoots.length; i++) {
+				targetChords.add(new Chord(minorRoots[i], "m"));
+			}
+//			targetChords.add(new Chord("A","sus2"));
+//			targetChords.add(new Chord("A", "m7"));
+
 			if (!audio.isInitialized()) audio.initialize(fs,bufferSizeInSeconds);
+
+//			audio.setTargetChords(targetChords);
+
 			if (!audio.isProcessing()) audio.start();
 			Log.d("onResume", "starting audio processing");
 		}

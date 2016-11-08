@@ -9,6 +9,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
+import java.util.ArrayList;
+
+import rocks.fretx.audioprocessing.Chord;
+
 /**
  * Created by Kickdrum on 28-Oct-16.
  */
@@ -34,6 +38,18 @@ public class ChordFragment extends Fragment {
 		chordView = (ChordView) rootView.findViewById(R.id.chordView);
 		chordView.setmActivity(mActivity);
 		chordView.setRootView(rootView);
+
+		ArrayList<Chord> exerciseChords = new ArrayList<Chord>(0);
+		String[] majorRoots = new String[]{"D","G"};
+		for (int i = 0; i < majorRoots.length; i++) {
+			exerciseChords.add(new Chord(majorRoots[i], "maj"));
+		}
+		String[] minorRoots = new String[]{"E"};
+		for (int i = 0; i < minorRoots.length; i++) {
+			exerciseChords.add(new Chord(minorRoots[i], "m"));
+		}
+
+		chordView.setChords(exerciseChords);
 
 		return rootView;
 	}
