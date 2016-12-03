@@ -24,6 +24,7 @@ public class ChordView extends RelativeLayout {
 
 	private MainActivity mActivity;
 	private RelativeLayout rootView;
+	private FretBoardView fretBoardView;
 
 	private final double VOLUME_THRESHOLD = -11;
 	private int width, height;
@@ -127,6 +128,8 @@ public class ChordView extends RelativeLayout {
 		this.rootView = rv;
 	}
 
+	public void setFretBoardView(FretBoardView fv) {this.fretBoardView = fv;}
+
 	@Override
 	protected void onSizeChanged(int w, int h, int oldw, int oldh) {
 		super.onSizeChanged(w, h, oldw, oldh);
@@ -140,7 +143,7 @@ public class ChordView extends RelativeLayout {
 		//TODO: better architecture, this shouldn't be in the GUI thread, but eh.
 		TextView textChord = (TextView) rootView.findViewById(R.id.textChord);
 		textChord.setText(chords.get(chordsIndex).toString());
-
+		fretBoardView.setFingerPositions();
 		if(mActivity.audio.getVolume() > VOLUME_THRESHOLD){
 			if(!listening){
 				startListening();

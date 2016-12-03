@@ -21,6 +21,7 @@ public class ChordFragment extends Fragment {
 	private MainActivity mActivity;
 	RelativeLayout rootView = null;
 	ChordView chordView = null;
+	FretBoardView fretBoardView = null;
 	int[] targetNotes = null;
 
 	@Override
@@ -38,6 +39,8 @@ public class ChordFragment extends Fragment {
 		chordView = (ChordView) rootView.findViewById(R.id.chordView);
 		chordView.setmActivity(mActivity);
 		chordView.setRootView(rootView);
+		fretBoardView = (FretBoardView) rootView.findViewById(R.id.fretBoardView);
+		chordView.setFretBoardView(fretBoardView);
 
 		ArrayList<Chord> exerciseChords = new ArrayList<Chord>(0);
 		String[] majorRoots = new String[]{"D","G"};

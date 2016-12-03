@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/icons"
+    android:orientation="vertical"
+    >
+
+    <rocks.fretx.audioprocessingdemo.NoteDetectorView
+        android:id="@+id/noteDetectorView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <rocks.fretx.audioprocessingdemo.FretBoardView
+            android:id="@+id/fretBoardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textNote" />
+
+        <Space
+            android:id="@+id/noteSpacer"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@color/icons"
+            android:background="@color/primary_text"
+            android:id="@+id/textNote"
+            android:layout_gravity="center_vertical"
+            android:textSize="80sp"
+            android:layout_below="@+id/noteSpacer"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+    </rocks.fretx.audioprocessingdemo.NoteDetectorView>
+
+
+</RelativeLayout>

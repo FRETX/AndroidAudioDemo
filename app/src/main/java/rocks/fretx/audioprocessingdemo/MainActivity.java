@@ -27,14 +27,15 @@ import java.util.ArrayList;
 
 import rocks.fretx.audioprocessing.AudioProcessing;
 import rocks.fretx.audioprocessing.Chord;
+import rocks.fretx.audioprocessing.NoteDetector;
 
 public class MainActivity extends AppCompatActivity
 		implements NavigationView.OnNavigationItemSelectedListener {
 
 	//This is arbitrary, so why not The Answer to Life, Universe, and Everything?
 	private final int PERMISSION_CODE_RECORD_AUDIO = 42;
-	int fs = 8000;
-	double  bufferSizeInSeconds = 0.25;
+	int fs = 16000;
+	double  bufferSizeInSeconds = 0.05;
 	AudioProcessing audio;
 
 	@Override
@@ -145,6 +146,9 @@ public class MainActivity extends AppCompatActivity
 		} else if (id == R.id.navChord) {
 			ChordFragment fragment = new ChordFragment();
 			fragmentTransaction.replace(R.id.content_inner, fragment);
+		} else if (id == R.id.navNoteDetector) {
+			NoteDetectorFragment fragment = new NoteDetectorFragment();
+			fragmentTransaction.replace(R.id.content_inner, fragment);
 		}
 		fragmentTransaction.commit();
 
@@ -185,7 +189,7 @@ public class MainActivity extends AppCompatActivity
 //				TODO:startProcessing();
 			} else {
 				//Displaying another toast if permission is not granted
-				Toast.makeText(this, "FretX Tuner cannot work without this permission. Restart the app to ask for it again.", Toast.LENGTH_LONG).show();
+				Toast.makeText(this, "FretX Audio Demo cannot work without this permission. Restart the app to ask for it again.", Toast.LENGTH_LONG).show();
 			}
 		}
 	}
